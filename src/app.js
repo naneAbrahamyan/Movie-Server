@@ -8,6 +8,9 @@ import genres from "./routes/genre.route.js";
 import watchlist from "./routes/watchlist.route.js";
 import jwtMiddleware from "./common/auth.middleware.js";
 import handleError from "./common/error-handler.middleware.js";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const corsOptions = {
   origin: "http://localhost:3000",

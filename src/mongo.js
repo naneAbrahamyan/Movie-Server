@@ -1,7 +1,10 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 //update in .env file username+password ->
-mongoose.connect('mongodb+srv://smthik:smthik123@cluster0.iqojifn.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://smthik:${process.env.MONGO_PASSWORD}@cluster0.iqojifn.mongodb.net/?retryWrites=true&w=majority`, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
   useCreateIndex: true,

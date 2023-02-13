@@ -3,9 +3,11 @@ import User from '../entity/users.entity.js';
 import Unauthorized from 'http-errors';
 import  bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
+dotenv.config();
 
-// const JWT = process.env.JWT_KEY;
+const JWT = process.env.JWT_KEY;
 class UserService {
    createUser(payload) {
         const user = new User(payload);
@@ -39,14 +41,13 @@ class UserService {
       return user;
    }
 
-   //update - put secret in .env 
    async login(email, password) {
       const user = await this.validate(email, password);
-      return jwt.sign({ userId: user._id, email: email} , 'IIXCLtvNHQkCmnkc12qq') //email is not necessary I just wrote it for my convenience
+      return jwt.sign({ userId: user._id, email: email} , JWT) //email is not necessary I just wrote it for my convenience
    }
 
    validateToken(token) {
-      const obj = jwt.verify(token,  'IIXCLtvNHQkCmnkc12qq' , {
+      const obj = jwt.verify(token,  JWT , {
          ignoreExpiration: false,
       });
    
