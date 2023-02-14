@@ -3,8 +3,8 @@ import users from '../service/users.service.js';
 
 export const signUp = asyncHandler( async (req, res) => {
     const { body } = req;
-    const result  = await users.createUser(body);
-    res.status(201).json({result});
+    const token  = await users.createUser(body);
+    res.status(201).json({token});
 })
 
 

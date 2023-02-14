@@ -3,15 +3,12 @@ import User from '../entity/users.entity.js';
 import Unauthorized from 'http-errors';
 import  bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const JWT = process.env.JWT_KEY;
 class UserService {
-   createUser(payload) {
+   async createUser(payload) {
         const user = new User(payload);
-        user.save();
+        await user.save();
         return this.login(payload.email, payload.password)
     }
 

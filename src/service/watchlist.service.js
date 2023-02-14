@@ -5,27 +5,26 @@ import Movie from "../entity/movies.entity.js";
 
 class WatchListService {
   async addWatchList(user, movie_id) {
-    const newValue = await new Watchlist({ user_id: user.userId, movie_id });
-    newValue.save();
-    const movieTitle = movies.findMovieTitleById(movie_id);
+    const newValue = new Watchlist({ user_id: user.userId, movie_id });
+    await newValue.save();
+    const movieTitle = await movies.findMovieTitleById(movie_id);
     return movieTitle;
   }
 
   async viewWatchList(user) {
     const userWatchList = await Watchlist.find({ user_id: user.userId })
       .populate("movie_id")
-      .select('movie_id')
+      .select("movie_id")
       .exec();
     return userWatchList;
   }
 
   async deleteFromWatchList(user, movie_id) {
-    const result = await Watchlist.deleteOne({
+    await Watchlist.deleteOne({
       user_id: user.userId,
       movie_id,
     }).exec();
-    console.log(result);
-    const movieTitle = movies.findMovieTitleById(movie_id);
+    const movieTitle = await movies.findMovieTitleById(movie_id);
     return movieTitle;
   }
 
