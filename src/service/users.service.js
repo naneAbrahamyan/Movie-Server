@@ -1,5 +1,5 @@
 import NotFound from 'http-errors';
-import User from '../entity/users.entity.js';
+import User from '../models/users.entity.js';
 import Unauthorized from 'http-errors';
 import  bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken';

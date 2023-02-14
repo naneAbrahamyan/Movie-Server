@@ -1,5 +1,5 @@
 import NotFound from 'http-errors';
-import Genre from '../entity/genre.entity.js';
+import Genre from '../models/genre.entity.js';
 import axios from 'axios';
 
 class MoviesService {

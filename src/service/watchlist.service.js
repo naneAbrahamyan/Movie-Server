@@ -1,7 +1,7 @@
 import NotFound from "http-errors";
-import Watchlist from "../entity/watchlist.entity.js";
+import Watchlist from "../models/watchlist.entity.js";
 import movies from "./movies.service.js";
-import Movie from "../entity/movies.entity.js";
+import Movie from "../models/movies.entity.js";
 
 class WatchListService {
   async addWatchList(user, movie_id) {
