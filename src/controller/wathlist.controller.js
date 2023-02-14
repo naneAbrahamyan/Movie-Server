@@ -1,4 +1,5 @@
 import asyncHandler from "express-async-handler";
+
 import watchlist from "../service/watchlist.service.js";
 
 export const getWatchList = asyncHandler(async (req, res) => {
@@ -8,7 +9,7 @@ export const getWatchList = asyncHandler(async (req, res) => {
 
 export const addToWatchList = asyncHandler(async (req, res) => {
   const { id } = req.params;
-  const result =  await watchlist.addWatchList(req.user, id);
+  const result = await watchlist.addWatchList(req.user, id);
   res.send(`Successfully added movie : ${result}`); //to be changed to real movie name
 });
 

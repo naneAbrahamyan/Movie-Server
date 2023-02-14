@@ -1,4 +1,3 @@
-import NotFound from "http-errors";
 import Watchlist from "../models/watchlist.entity.js";
 import movies from "./movies.service.js";
 import Movie from "../models/movies.entity.js";

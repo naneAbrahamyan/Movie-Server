@@ -1,18 +1,15 @@
-import NotFound from 'http-errors';
-import Genre from '../models/genre.entity.js';
-import axios from 'axios';
+import Genre from "../models/genre.entity.js";
 
 class MoviesService {
-   async getGenres() {
-      return Genre.find({}).exec();
-   }
+  getGenres() { //removed async as at wasn't needed
+    return Genre.find({}).exec();
+  }
 
-   async postGenre(payload){
-      const  { id , name} = payload;
-       const genre = new Genre({ _id: id, name});
-       return genre.save();
-   }
-
+  postGenre(payload) {
+    const { id, name } = payload;
+    const genre = new Genre({ _id: id, name });
+    return genre.save();
+  }
 }
 
 const genres = new MoviesService();

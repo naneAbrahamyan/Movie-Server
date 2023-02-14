@@ -26,7 +26,7 @@ app.use(cors(corsOptions));
 
 app.use(
   jwtMiddleware.unless({
-    path: ["/users/login", "/users", "/movies", "/genres", "/movies/filter", "/genres/", "/movies/add-api"],
+    path: ["/users/login", "/users/", "/movies", "/genres", "/movies/filter", "/genres/", "/movies/add-api"],
   })
 );
 

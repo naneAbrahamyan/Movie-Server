@@ -1,4 +1,3 @@
-import NotFound from "http-errors";
 import Movie from "../models/movies.entity.js";
 
 class MoviesService {

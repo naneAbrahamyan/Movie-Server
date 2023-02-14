@@ -1,5 +1,6 @@
 import axios from "axios";
 import asyncHandler from "express-async-handler";
+
 import genres from "../service/genre.service.js";
 
 export const addGenresFromApi = asyncHandler(async (req, res) => {
