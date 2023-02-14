@@ -7,8 +7,8 @@ export const addGenresFromApi = asyncHandler(async (req, res) => {
     "https://api.themoviedb.org/3/genre/movie/list?api_key=0ea0d74041d587d10b24407ebd018913&language=en-US"
   );
   const value = await Promise.all(
-    data.data.results.map((movie) => {
-      return movies.postMovie(movie);
+    data.data.genres.map((movie) => {
+      return genres.postGenre(movie);
     })
   );
   res.json(value);
